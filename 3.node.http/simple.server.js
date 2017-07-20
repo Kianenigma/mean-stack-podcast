@@ -23,9 +23,7 @@ const server = http.createServer((req, resp) => {
   req.on('data', chunk => data.push(chunk) )
   req.on('end', () => {
     data = data.toString()
-    console.log(`req data is ${data}`)
-    console.log(typeof(data))
-    console.log(JSON.parse(data).foo)
+    console.log('request data', data)
 
     // resp => Class: http.ServerResponse
     // The response implements, but does not inherit from, the Writable Stream interface
