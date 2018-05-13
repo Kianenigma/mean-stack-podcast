@@ -1,0 +1,47 @@
+$ show dbs
+
+// use or create new database
+$ use mean
+
+// what about collections? 
+$ show collections
+
+// insert a document
+$ db.users.insert({"foo": "yo"})
+
+// find it
+$ db.users.find({})
+
+// what the hell is `mean` in this code? 
+$ db.wtf.insert({name: 'kian'})
+$ show collections
+
+// let's get rid of it...
+$ db.wtf.drop()
+
+// Let's have some valid (or near valid) data
+$ db.users.insert({"name": "kian", age: 21, id: 92521042})
+
+// THE FIND() method 
+$ db.<collectionName>.find(
+    {name: "kian"},      <-- criteria
+    {},                          <-- projection
+).limit(2)                       <-- cursor 
+
+$ db.users.find(
+    {age : { $gt: 20} },    
+    {age: 1}
+).limit(2)
+
+// operations like $ge can be found on the website
+
+// The update() method 
+$ db.users.update(
+    {name: "kian"},               <-- criteria
+    {$set : {name : "kiana"}},    <-- operation
+)             
+
+// The remove method
+$ db.users.remove(
+    {name : "kian"}               <-- criteria
+)
